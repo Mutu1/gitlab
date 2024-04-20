@@ -1,0 +1,19 @@
+stages:
+  - setup
+  - build
+
+setup_dependencies:
+  stage: setup
+  script:
+    - pip install -r requirements.txt
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - .cache/pip
+
+build:
+  stage: build
+  script:
+    - ./build_script.sh
+  dependencies:
+    - setup_dependencies
