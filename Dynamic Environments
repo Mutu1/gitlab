@@ -1,0 +1,9 @@
+deploy_review:
+  stage: deploy
+  script:
+    - deploy_to_review.sh
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: https://$CI_ENVIRONMENT_SLUG.example.com
+  only:
+    - branches
