@@ -1,0 +1,7 @@
+test:
+  stage: test
+  script:
+    - pytest tests/
+  parallel:
+    matrix:
+      - TEST_GROUP: [1,2,3,4]
